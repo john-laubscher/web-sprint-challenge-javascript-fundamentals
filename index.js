@@ -30,8 +30,7 @@ For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you ma
 
 function summation(number) {
   let counter = 0;
-  let i = 0;
-  for (i=0; i<=number; i++){
+  for (let i=0; i<=number; i++){
     counter += i;
   }
   return counter
@@ -64,8 +63,9 @@ const zooAnimals = [
     const displayNames = [];
    
     zooAnimals.forEach(function(item) {
-     return displayNames.push (`name: ${item.animal_name}, scientific: ${item.scientific_name}`);
+     displayNames.push (`name: ${item.animal_name}, scientific: ${item.scientific_name}`);
   });
+  return displayNames;
 }
 
 
@@ -76,10 +76,9 @@ const zooAnimals = [
   */
 
    function lowerCaseNames(zooAnimals){
-    const lowerCN = zooAnimals.map(function(item) {
-      return item.animal_name
+    return zooAnimals.map(function(item) {
+      return item.animal_name.toLowerCase();
     });
-    return lowerCN.toLowerCase();
   }
   
   
@@ -92,7 +91,9 @@ const zooAnimals = [
     const newArray = zooAnimals.filter(function(item){
       return item.population < 5;
      });
+     return newArray; 
     }
+    
   
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -102,9 +103,9 @@ const zooAnimals = [
   */
 
   function USApop(zooAnimals){
-  //   const totalPop = zooAnimals.population.reduce(function(acc, item)
-  //   return accumulator + item;
-  // },0);
+     return zooAnimals.reduce(function(acc, item){
+     return acc + item.population;
+  },0);
 }
   
   
